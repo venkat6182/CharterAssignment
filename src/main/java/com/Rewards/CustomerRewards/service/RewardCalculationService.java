@@ -17,7 +17,7 @@ public class RewardCalculationService {
 
     static final Logger log = LoggerFactory.getLogger(RewardCalculationService.class);
     private Set<String> transactionMonths = new HashSet<>();
-
+   // In this method mapping all transcation made by single customer
     public Map<String, List<Transaction>> mapAllUniqueCustomerID(List<Transaction> transactionList) {
         log.info(" Starting method to getALLAllUniqueCustomerID");
         Map<String, List<Transaction>> uniqueCustomerIDMap = new HashMap<>();
@@ -38,7 +38,7 @@ public class RewardCalculationService {
         log.info(" end of method to getALLAllUniqueCustomerID");
         return uniqueCustomerIDMap;
     }
-
+  //calculate total rewards, monthly rewards and preaparing response
     public List<Response> customerRewardsPoints(List<Transaction> transactionList) {
         log.info(" Starting method to customerRewardsPoints");
         Map<String, List<Transaction>> customerMap = mapAllUniqueCustomerID(transactionList);
@@ -90,7 +90,7 @@ public class RewardCalculationService {
 
         return responseBodies;
     }
-
+    // Sorting months jan to dec order
     public Integer calculateRewardPoints(Integer transactionPrice) {
         log.info(" Starting method to calculateRewardPoints");
         int rewards = 0;
